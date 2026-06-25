@@ -24,7 +24,7 @@ async function apiCall(){
         }
 
         const data= await response.json();
-
+        console.log(data);
         container.innerHTML = `<img src="${data.message}">`;
     }
     catch (error) {

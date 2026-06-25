@@ -1,0 +1,7 @@
+.parent-container {
+  display: flex;
+  flex-direction: column;   /* Stack them vertically */
+  justify-content: center;  /* Center vertically if parent has height */
+  align-items: center;      /* Center horizontally */
+  min-height: 100vh;        /* Optional: Gives parent full viewport height */
+}
