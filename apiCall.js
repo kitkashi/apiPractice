@@ -1,7 +1,15 @@
-async function apiCall(){
+// connecting the html elements to js with variable name/id
+const button = document.getElementById('apiButton');
+const container = document.getElementById('dataContainer');
 
-    //api endpoint that i will constantly call
-    const url='https://dog.ceo/api/breeds/image/random'
+//api endpoint that i will constantly call
+const url='https://dog.ceo/api/breeds/image/random';
+
+
+button.addEventListener('click', ()=> apiCall(),false);
+
+
+async function apiCall(){
 
     try{
         const response = await fetch(url);
@@ -13,4 +21,5 @@ async function apiCall(){
     const data = response.json();
 
     }
+    catch
 }
