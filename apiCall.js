@@ -1,25 +1,33 @@
 // connecting the html elements to js with variable name/id
-const button = document.getElementById('apiButton');
+const button = document.getElementById('button');
 const container = document.getElementById('dataContainer');
 
 //api endpoint that i will constantly call
 const url='https://dog.ceo/api/breeds/image/random';
 
-
-button.addEventListener('click', ()=> apiCall(),false);
+if(button){
+    console.log("button is loaded into dom.")
+    button.addEventListener('click', ()=> apiCall(),false);
+}
+//checking to make sure the button is not null before addinv event listener 
 
 
 async function apiCall(){
-
     try{
+        container.textContent='Loading dogs...';
+        console.log("Loading dogs")
         const response = await fetch(url);
         //if response not within 200-299 range throws error
         if(!response.ok){
+            console.log("Response was not okay")
             throw new Error(`HTTP Error! Status: ${response}`)
         }
 
-    const data = response.json();
+        const data= await response.json();
 
+        container.innerHTML = `$<img src="${data.message}">`;
     }
-    catch
+    catch (error) {
+    container.innerHTML = '<p>Failed to load dog image. Please try again.</p>';
+    }
 }
