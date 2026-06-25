@@ -5,13 +5,13 @@ const container = document.getElementById('dataContainer');
 //api endpoint that i will constantly call
 const url='https://dog.ceo/api/breeds/image/random';
 
+//checking to make sure the button is not null before addinv event listener 
 if(button){
     console.log("Button is loaded into dom.")
     button.addEventListener('click', ()=> apiCall());
 }
-//checking to make sure the button is not null before addinv event listener 
 
-
+//calls api for url endpoint specified above, also logs what it is doing and throws error when image not found
 async function apiCall(){
     try{
         container.textContent='Loading dogs...';
